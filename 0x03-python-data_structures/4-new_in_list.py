@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-def new_in_lister(my_list=[]):
+def new_in_list(my_list, idx, element):
     if my_list:
-        k = -1
-        for i in my_list:
-            print("{:d}".format(my_list[k]))
-            k = k - 1
+        new_list = list(my_list)
+        new_list[idx] = element
+        return new_list
