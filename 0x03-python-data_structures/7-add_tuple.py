@@ -9,6 +9,6 @@ def add_tuple(tuple_a=(), tuple_b=()):
             sum_result = sum_result + (tuple_a[i] + 0,)
         elif len(tuple_b) == 0:
             sum_result = sum_result + (tuple_a[i] + 0,)
-        elif len(tuple_b) == 2:
+        elif len(tuple_b) >= 2:
             sum_result = sum_result + (tuple_a[i] + tuple_b[i],)
     return sum_result
