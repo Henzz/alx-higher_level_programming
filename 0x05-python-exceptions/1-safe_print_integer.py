@@ -1,8 +1,4 @@
 #!/usr/bin/python3
-# 1-safe_print_integer.py
-# Amos Mwongela Gabriel <amosmwongelah@gmail.com>
-
-
 def safe_print_integer(value):
     """Print an integer with "{:d}".format().
 
