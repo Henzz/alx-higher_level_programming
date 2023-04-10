@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-# 1-my_list.py
-# Amos Mwongela Gabriel <amosmwongelah@gmail.com>
 """Defines an inherited list class MyList."""
 
 
