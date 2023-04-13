@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# 2-is_same_class.py
+# Amos Mwongela Gabriel <amosmwongelah@gmail.com>
 """Defines a class-checking function."""
 
 
