@@ -1,8 +1,25 @@
 #!/usr/bin/python3
+
+"""Define a class square."""
+
+
 class Square:
-    __size = 0
+    """
+    A class that defines a square.
+
+    Attributes:
+        size (int): The length of the square's length.
+    """
 
     def __init__(self, size=0):
+        """
+        Initializes a Square object. Assigns size to private attribute size if
+        size type is an integer.
+
+        Args:
+            size (int): The length of the square's length.
+        """
+
         if not type(size) is int:
             raise TypeError("size must be an integer")
         if size < 0:
