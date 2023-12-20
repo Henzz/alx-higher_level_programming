@@ -8,8 +8,8 @@ class Square:
 
     def __init__(self, size=0, position=(0, 0)):
         """
-        Initializes a new Square object. Assigns size to private attribute size if
-        size type is an integer.
+        Initializes a new Square object.
+        Assigns size to private attribute size if size type is an integer.
 
         Args:
             size (int): The length of the square's length.
@@ -39,11 +39,10 @@ class Square:
     @position.setter
     def position(self, value):
         if (not type(value) is tuple or
-            len(value) != 2):
-                raise TypeError("position must be a tuple of 2 positive integers")
-        for i in value:
-            if not type(i) is int and i >= 0:
-                raise TypeError("position must be a tuple of 2 positive integers")
+                len(value) != 2 or
+                not all(type(i) is int for val in value) or
+                not all(val >= 0 for val in value)):
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
     def area(self):
@@ -57,7 +56,8 @@ class Square:
 
     def my_print(self):
         """
-        A Function that prints space with the size of postion[0 and prints # * size on stdout.
+        A Function that prints space with the size of postion[0]
+        and prints # * size on stdout.
         If size is 0 prints empty line.
         """
 
