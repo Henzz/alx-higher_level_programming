@@ -1,16 +1,13 @@
 #!/usr/bin/python3
+"""Unittests for max_integer([..])
 """
-Unittests for max_integer([...]).
-"""
-
-
 import unittest
 max_integer = __import__('6-max_integer').max_integer
 
 
 class TestMaxInteger(unittest.TestCase):
     """
-    Define unittests for max_integer([..]).
+    Define unittests for max_integer([..])
     """
     def test_ordered_list(self):
         """
@@ -23,15 +20,15 @@ class TestMaxInteger(unittest.TestCase):
         """
         Test an unordered list of integers.
         """
-        ordered = [1, 2, 4, 3]
-        self.assertEqual(max_integer(ordered), 4)
+        unordered = [1, 2, 4, 3]
+        self.assertEqual(max_integer(unordered), 4)
 
     def test_max_at_begginning(self):
         """
         Test a list with a beginning max value.
         """
-        ordered = [4, 3, 2, 1]
-        self.assertEqual(max_integer(ordered), 4)
+        max_at_beg = [4, 3, 2, 1]
+        self.assertEqual(max_integer(max_at_beg), 4)
 
     def test_empty_list(self):
         """
@@ -45,7 +42,7 @@ class TestMaxInteger(unittest.TestCase):
         Test a list with a single element.
         """
         one_el = [4]
-        self.assertEqual(max_integer(one_el), 7)
+        self.assertEqual(max_integer(one_el), 4)
 
     def test_floats(self):
         """
