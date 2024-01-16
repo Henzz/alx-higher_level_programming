@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-This module defines the Rectangle class, which represents
+"""This module defines the Rectangle class, which represents
 a rectangle shape. The Rectangle class inherits from the
 Base class.
 
@@ -17,6 +16,11 @@ from models.base import Base
 
 
 class Rectangle(Base):
+    __width = None
+    __height = None
+    __x = None
+    __y = None
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Constructor for the Rectangle class.
