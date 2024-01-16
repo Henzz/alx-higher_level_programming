@@ -103,5 +103,18 @@ class Rectangle(Base):
 
     def display(self):
         """Prints in stdout the rectangle with the character #"""
+        display_str = ""
+        for _ in range(self.y):
+            display_str += "\n"
         for _ in range(self.height):
-            print("#" * self.width)
+            display_str += " " * self.x + "#" * self.width + "\n"
+        print(display_str, end="")
+
+    def __str__(self):
+        i = self.id
+        x = self.x
+        y = self.y
+        w = self.width
+        h = self.height
+
+        return f"[Rectangle] ({i}) {x}/{y} - {w}/{h}"
