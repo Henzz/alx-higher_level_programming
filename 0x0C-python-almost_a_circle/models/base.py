@@ -1,6 +1,5 @@
-"""
-This module contains the definition of the `Base` class.
-"""
+#!/usr/bin/python3
+"""This module contains the definition of the `Base` class."""
 
 
 class Base:
