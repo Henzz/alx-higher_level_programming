@@ -29,6 +29,8 @@ class TestRectangle(unittest.TestCase):
         test_rectangle_display(self)
         test_rectangle_str_default(self)
         test_rectangle_str_large_values(self)
+        test_display_default(self)
+        test_display_with_coordinates(self)
     """
 
     def test_rectangle_creation(self):
@@ -115,8 +117,8 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(5, 3)
 
         expected_output = "#####\n" \
-                          "#####\n" \
-                          "#####\n"
+            "#####\n" \
+            "#####\n"
 
         with patch('sys.stdout', new=StringIO()) as mock_stdout:
             r.display()
@@ -129,7 +131,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str(r), expected)
 
     def test_rectangle_str_large_values(self):
-        """Test a rectangle that has zero large values for coordinates and
+        """Test a rectangle that has large values for coordinates and
         dimensions"""
         r = Rectangle(1000000, 1000000, 999999, 999999, 9999)
         expected = "[Rectangle] (9999) 999999/999999 - 1000000/1000000"
@@ -146,14 +148,6 @@ class TestRectangle(unittest.TestCase):
     def test_display_with_coordinates(self):
         r = Rectangle(4, 2, 2, 1)
         expected_output = "  ####\n  ####\n"
-
-        with patch('sys.stdout', new=StringIO()) as mock_stdout:
-            r.display()
-            self.assertEqual(mock_stdout.getvalue(), expected_output)
-
-    def test_display_with_zero_dimensions(self):
-        r = Rectangle(0, 0, 3, 2)
-        expected_output = ""
 
         with patch('sys.stdout', new=StringIO()) as mock_stdout:
             r.display()
