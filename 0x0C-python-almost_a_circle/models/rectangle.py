@@ -12,7 +12,7 @@ Private instance attributes:
 Public getter and setter methods are provided for each
 private attribure.
 """
-from models.base import Base
+from base import Base
 
 
 class Rectangle(Base):
