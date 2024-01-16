@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-test_base.py
+test_rectangle.py
 
-Test class for the `Base` class in `models/base.py`
+Test class for the Rectangle class in `models/rectangle.py`
 
 Classes:
-    TestBase
+    TestRectangle
 """
 import unittest
 from models.rectangle import Rectangle
