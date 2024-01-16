@@ -152,6 +152,33 @@ class TestRectangle(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as mock_stdout:
             r.display()
             self.assertEqual(mock_stdout.getvalue(), expected_output)
+    
+    def test_update_with_arguments(self):
+        r = Rectangle(5, 3)
+        r.update(10, 7, 4, 2, 1)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 7)
+        self.assertEqual(r.height, 4)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 1)
+
+    def test_update_with_fewer_arguments(self):
+        r = Rectangle(5, 3)
+        r.update(10, 7)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 7)
+        self.assertEqual(r.height, 3)
+        self.assertEqual(r.x, 0)
+        self.assertEqual(r.y, 0)
+
+    def test_update_with_extra_arguments(self):
+        r = Rectangle(5, 3)
+        r.update(10, 7, 4, 2, 1, 6)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 7)
+        self.assertEqual(r.height, 4)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 1)
 
 
 if __name__ == '__main__':
