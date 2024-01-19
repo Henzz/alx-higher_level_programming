@@ -111,6 +111,7 @@ class Rectangle(Base):
         print(display_str, end="")
 
     def update(self, *args):
+        """Updates values in the rectangle starting from id to y coordinate"""
         num_args = len(args)
         if num_args > 0:
             self.id = args[0]
@@ -124,6 +125,7 @@ class Rectangle(Base):
             self.y = args[4]
 
     def __str__(self):
+        """Prints in stdout the rectangle values in string"""
         i = self.id
         x = self.x
         y = self.y

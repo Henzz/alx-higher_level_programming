@@ -31,6 +31,7 @@ class TestRectangle(unittest.TestCase):
         test_rectangle_str_large_values(self)
         test_display_default(self)
         test_display_with_coordinates(self)
+        test_update_with_arguments(self)
     """
 
     def test_rectangle_creation(self):
@@ -138,6 +139,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str(r), expected)
 
     def test_display_default(self):
+        """Test a rectangle standard output"""
         r = Rectangle(5, 3)
         expected_output = "#####\n#####\n#####\n"
 
@@ -146,6 +148,7 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(mock_stdout.getvalue(), expected_output)
 
     def test_display_with_coordinates(self):
+        """Test a rectangle standard output coordinates"""
         r = Rectangle(4, 2, 2, 1)
         expected_output = "  ####\n  ####\n"
 
@@ -154,6 +157,7 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(mock_stdout.getvalue(), expected_output)
     
     def test_update_with_arguments(self):
+        """Test a rectangle update values with arguments"""
         r = Rectangle(5, 3)
         r.update(10, 7, 4, 2, 1)
         self.assertEqual(r.id, 10)
@@ -163,6 +167,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.y, 1)
 
     def test_update_with_fewer_arguments(self):
+        """Test a rectangle update values with fewer arguments"""
         r = Rectangle(5, 3)
         r.update(10, 7)
         self.assertEqual(r.id, 10)
@@ -172,6 +177,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.y, 0)
 
     def test_update_with_extra_arguments(self):
+        """Test a rectangle update values with extra arguments"""
         r = Rectangle(5, 3)
         r.update(10, 7, 4, 2, 1, 6)
         self.assertEqual(r.id, 10)
