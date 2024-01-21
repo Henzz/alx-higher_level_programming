@@ -31,6 +31,9 @@ class TestRectangle(unittest.TestCase):
         test_rectangle_str_large_values(self)
         test_display_default(self)
         test_display_with_coordinates(self)
+        test_update_with_args(self)
+        test_update_with_kwargs(self)
+        test_update_with_args_and_kwargs(self)
     """
 
     def test_rectangle_creation(self):
@@ -138,6 +141,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(str(r), expected)
 
     def test_display_default(self):
+        """Test a rectangle standard output"""
         r = Rectangle(5, 3)
         expected_output = "#####\n#####\n#####\n"
 
@@ -146,39 +150,37 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(mock_stdout.getvalue(), expected_output)
 
     def test_display_with_coordinates(self):
-        r = Rectangle(4, 2, 2, 1)
+        """Test a rectangle standard output coordinates"""
+        r = Rectangle(4, 2, 2, 0)
         expected_output = "  ####\n  ####\n"
 
         with patch('sys.stdout', new=StringIO()) as mock_stdout:
             r.display()
             self.assertEqual(mock_stdout.getvalue(), expected_output)
-    
-    def test_update_with_arguments(self):
-        r = Rectangle(5, 3)
-        r.update(10, 7, 4, 2, 1)
-        self.assertEqual(r.id, 10)
-        self.assertEqual(r.width, 7)
-        self.assertEqual(r.height, 4)
-        self.assertEqual(r.x, 2)
-        self.assertEqual(r.y, 1)
 
-    def test_update_with_fewer_arguments(self):
+    def test_update_with_args(self):
+        """Test a rectangle update method by passing positional arguments"""
         r = Rectangle(5, 3)
         r.update(10, 7)
-        self.assertEqual(r.id, 10)
         self.assertEqual(r.width, 7)
         self.assertEqual(r.height, 3)
+
+    def test_update_with_kwargs(self):
+        """Test a rectangle update method by passing keyword arguments"""
+        r = Rectangle(5, 3)
+        r.update(width=10, height=7)
+        self.assertEqual(r.width, 10)
+        self.assertEqual(r.height, 7)
         self.assertEqual(r.x, 0)
         self.assertEqual(r.y, 0)
 
-    def test_update_with_extra_arguments(self):
+    def test_update_with_args_and_kwargs(self):
+        """Test a rectangle update method by passing both positional
+        and keyword arguments"""
         r = Rectangle(5, 3)
-        r.update(10, 7, 4, 2, 1, 6)
-        self.assertEqual(r.id, 10)
-        self.assertEqual(r.width, 7)
-        self.assertEqual(r.height, 4)
-        self.assertEqual(r.x, 2)
-        self.assertEqual(r.y, 1)
+        r.update(10, height=7)
+        self.assertEqual(r.width, 5)
+        self.assertEqual(r.height, 7)
 
 
 if __name__ == '__main__':

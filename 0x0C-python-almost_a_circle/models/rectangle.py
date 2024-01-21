@@ -110,24 +110,30 @@ class Rectangle(Base):
             display_str += " " * self.x + "#" * self.width + "\n"
         print(display_str, end="")
 
-    def update(self, *args):
-        num_args = len(args)
-        if num_args > 0:
-            self.id = args[0]
-        if num_args > 1:
-            self.width = args[1]
-        if num_args > 2:
-            self.height = args[2]
-        if num_args > 3:
-            self.x = args[3]
-        if num_args > 4:
-            self.y = args[4]
+    def update(self, *args, **kwargs):
+        """Updates values in the rectangle starting from id to y coordinate.
+        Added kwargs to get key/value pair and update"""
+        if args:
+            num_args = len(args)
+            if num_args > 0:
+                self.id = args[0]
+            if num_args > 1:
+                self.width = args[1]
+            if num_args > 2:
+                self.height = args[2]
+            if num_args > 3:
+                self.x = args[3]
+            if num_args > 4:
+                self.y = args[4]
+        if kwargs is not None:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def __str__(self):
+        """Prints in stdout the rectangle values in string"""
         i = self.id
         x = self.x
         y = self.y
         w = self.width
         h = self.height
-
         return f"[Rectangle] ({i}) {x}/{y} - {w}/{h}"
