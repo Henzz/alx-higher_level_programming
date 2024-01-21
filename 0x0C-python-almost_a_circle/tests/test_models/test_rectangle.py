@@ -142,6 +142,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_display_default(self):
         """Test a rectangle standard output"""
+        """Test a rectangle standard output"""
         r = Rectangle(5, 3)
         expected_output = "#####\n#####\n#####\n"
 

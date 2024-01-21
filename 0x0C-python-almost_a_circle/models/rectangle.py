@@ -131,6 +131,7 @@ class Rectangle(Base):
 
     def __str__(self):
         """Prints in stdout the rectangle values in string"""
+        """Prints in stdout the rectangle values in string"""
         i = self.id
         x = self.x
         y = self.y
