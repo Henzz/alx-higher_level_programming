@@ -5,7 +5,7 @@ SELECT COUNT(*) INTO @userExists FROM mysql.user WHERE user = 'user_0d_1';
 
 -- If the user already exists, exit the script
 IF @userExists > 0 THEN
-	SELECT 'user_0d_1 already exists. No changes made.';
+	SELECT 'user_0d_1 already exists. No changes made.' AS message;
 ELSE
 	-- Create user_0d_1 and grant all privileges
 	CREATE USER 'user_0d_1'@'localhost' IDENTIFIED BY 'user_0d_1_pwd';
@@ -15,5 +15,5 @@ ELSE
 	FLUSH PRIVILEGES;
 
 	-- Display a success message
-	SELECT 'user_0d_1 created with all privileges.';
+	SELECT 'user_0d_1 created with all privileges.' AS message;
 END IF;
