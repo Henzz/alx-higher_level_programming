@@ -1,10 +1,10 @@
 -- Creates MySQL server user user_0d_1 with all privileges
 
 -- Check if the user already exists
-SELECT COUNT(*) FROM mysql.user WHERE user = 'user_0d_1';
+SELECT COUNT(*) INTO @userExists FROM mysql.user WHERE user = 'user_0d_1';
 
 -- If the user already exists, exit the script
-IF ROW_COUNT() > 0 THEN
+IF @userExists > 0 THEN
     SELECT 'user_0d_1 already exists. No changes made.';
     LEAVE;
 END IF;
