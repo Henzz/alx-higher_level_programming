@@ -3,8 +3,10 @@
 DELIMITER $$
 
 CREATE PROCEDURE create_user_procedure()
-
 BEGIN
+	-- Select the desired database
+	USE mysql;
+
 	DECLARE user_exists BOOLEAN DEFAULT 0;
 
 	-- Check if the user already exists
