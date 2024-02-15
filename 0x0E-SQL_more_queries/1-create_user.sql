@@ -2,7 +2,7 @@
 
 DELIMITER $$
 
-CREATE PROCEDURE CreateUserWithGrant()
+CREATE PROCEDURE create_user_procedure()
 
 BEGIN
 	DECLARE user_exists BOOLEAN DEFAULT 0;
@@ -24,6 +24,11 @@ BEGIN
 		-- Display a success message
 		SELECT 'user_0d_1 created with all privileges.' AS message;
 	END IF;
-END$$
+END
+$$
 
+-- Set the delimiter back to the default semicolon
 DELIMITER ;
+
+-- Call the sored precedure to create the user
+CALL create_user_procedure();
