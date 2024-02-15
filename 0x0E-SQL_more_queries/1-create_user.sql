@@ -2,6 +2,7 @@
 
 -- Check if the user already exists
 SELECT COUNT(*) FROM user WHERE user = 'user_0d_1';
+
 -- If the user already exists, exit the script
 IF ROW_COUNT() > 0 THEN
     SELECT 'user_0d_1 already exists. No changes made.';
