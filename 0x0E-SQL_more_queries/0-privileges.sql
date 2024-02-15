@@ -2,8 +2,9 @@
 -- and 'user_0d_2'
 USER1='user_od_1'
 USER2='user_od_2'
---SELECT *
---FROM mysql.user
---WHERE user IN ('$USER1', '$USER2');
+
+-- Query to retrieve privileges for USER1
 SHOW GRANTS FOR '$USER1'@'localhost';
+
+-- Query to retrieve privileges for USER2
 SHOW GRANTS FOR '$USER2'@'localhost';
