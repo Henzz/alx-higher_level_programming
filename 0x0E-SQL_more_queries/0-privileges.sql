@@ -2,6 +2,8 @@
 -- and 'user_0d_2'
 USER1='user_od_1'
 USER2='user_od_2'
-SELECT *
-FROM mysql.user
-WHERE user IN ('$USER1', '$USER2');
+--SELECT *
+--FROM mysql.user
+--WHERE user IN ('$USER1', '$USER2');
+SHOW GRANTS FOR '$USER1'@'localhost';
+SHOW GRANTS FOR '$USER2'@'localhost';
