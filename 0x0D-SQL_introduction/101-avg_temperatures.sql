@@ -1,9 +1,6 @@
 -- Displays the average temperature (Fahrenheit) by city ordered
 -- by temperature (desc)
 
--- Select database
-USE hbtn_0c_0;
-
 -- Import table dump file
 SOURCE temperatures.sql
 
