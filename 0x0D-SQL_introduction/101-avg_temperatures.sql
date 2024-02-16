@@ -1,9 +1,6 @@
 -- Displays the average temperature (Fahrenheit) by city ordered
 -- by temperature (desc)
 
--- Import table dump file
-SOURCE temperatures.sql
-
 -- Display avg temperature records by city
 SELECT city, AVG(value) 'avg_temp'
 FROM temperatures
