@@ -1,9 +1,8 @@
 -- Displays the max temperature for each state
 -- ordered by State name
 
--- Display top 3 with avg temperature records by city
+-- Display max temperature records by state
 SELECT state, MAX(value) `max_temp`
 FROM temperatures
-GROUP BY city
-ORDER BY state
-LIMIT 3;
+GROUP BY state
+ORDER BY state;
