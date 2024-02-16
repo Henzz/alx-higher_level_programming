@@ -1,8 +1,11 @@
 -- Displays the average temperature (Fahrenheit) by city ordered
 -- by temperature (desc)
 
--- Import database file
+-- Select database
+USE hbtn_0c_0;
+
+-- Import table dump file
 SOURCE temperatures.sql
 
--- Display avg temperature records
-SELECT hbtn_0c_0.temperatures.city, AVG(hbtn_0c_0.temperatures.value) 'avg_temp' FROM hbtn_0c_0.temperatures GROUP BY hbtn_0c_0.temperatures.city ORDER BY hbtn_0c_0.temperatures.value DESC;
+-- Display avg temperature records by city
+SELECT city, AVG(value) 'avg_temp' FROM temperatures GROUP BY city ORDER BY avg_temp DESC;
