@@ -3,5 +3,5 @@
 -- Select cities
 SELECT id, name FROM states
 INTERSECT
-SELECT state_id AS id, name FROM cities
+SELECT id, name FROM cities
 ORDER BY id ASC;
