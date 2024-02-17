@@ -4,4 +4,4 @@
 USE hbtn_0d_usa;
 
 -- Select cities
-SELECT id FROM states UNION SELECT state_id as id, name FROM cities;
+SELECT id FROM states UNION SELECT state_id AS id, name FROM cities;
