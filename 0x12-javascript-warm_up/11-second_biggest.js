@@ -9,6 +9,7 @@ argv.forEach((val, index) => { i++; });
 if (i > 3) {
   argv.forEach((val, index) => {
     if (index >= 2) {
+      val = parseInt(val);
       if (val > largest) {
         secondLargest = largest;
         largest = val;
@@ -18,4 +19,4 @@ if (i > 3) {
     }
   });
 }
-console.log(parseInt(secondLargest));
+console.log(secondLargest);
