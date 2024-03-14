@@ -17,6 +17,10 @@ class Square extends Square5 {
       console.log(row);
     }
   }
+
+  double () {
+    this.size *= 2;
+  }
 }
 
 module.exports = Square;
