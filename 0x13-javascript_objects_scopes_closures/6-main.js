@@ -7,6 +7,7 @@ s1.charPrint();
 s1.charPrint('C');
 
 const s2 = new Square(3);
+console.log(s2);
 s2.charPrint('D');
 s2.double();
 s2.charPrint('O');
