@@ -1,5 +1,5 @@
 #!/usr/bin/node
-class Rectange {
-  constructor () {
-  }
+class Rectangle {
 }
+
+module.exports = Rectangle;
