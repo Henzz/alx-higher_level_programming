@@ -23,7 +23,7 @@ def list_states(username, pwd, database, search):
     cur = db.cursor()
 
     # Execute the SQL query to retrieve states
-    cur.execute("SELECT * FROM states WHERE name LIKE '%{search}%' \
+    cur.execute("SELECT * FROM states WHERE BINARY name = '{search}' \
             ORDER BY id ASC".format(search=search))
 
     # Fetch all the rows returned by the query
