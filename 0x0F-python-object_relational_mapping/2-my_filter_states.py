@@ -1,12 +1,16 @@
 #!/usr/bin/python3
 '''
-    A script that lists all states from the database hbtn_0e_0usa
+    A script that lists all states from a database provided
+    with search param
 '''
 import MySQLdb
 import sys
 
 
 def list_states(username, pwd, database, search):
+    '''
+        Fetches data from database with search param
+    '''
     # Connect to MySQL server
     db = MySQLdb.connect(
             host='localhost',
@@ -19,8 +23,8 @@ def list_states(username, pwd, database, search):
     cur = db.cursor()
 
     # Execute the SQL query to retrieve states
-    cur.execute("SELECT * FROM states WHERE name LIKE '%"
-                + search + "%' ORDER BY id ASC")
+    cur.execute("SELECT * FROM states WHERE name LIKE '%{search}%' \
+            ORDER BY id ASC".format(search=search))
 
     # Fetch all the rows returned by the query
     rows = cur.fetchall()
