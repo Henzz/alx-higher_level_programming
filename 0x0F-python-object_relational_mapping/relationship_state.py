@@ -8,6 +8,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+
 class State(Base):
     '''
     A class defining table and its attributes, a city
@@ -15,4 +16,5 @@ class State(Base):
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)
-    cities = relationship("City", cascade="all, delete", back_populates="state")
+    cities = relationship("City", cascade="all, delete",
+                          back_populates="state")
