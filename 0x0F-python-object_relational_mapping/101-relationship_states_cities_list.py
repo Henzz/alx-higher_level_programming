@@ -6,7 +6,7 @@
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_state import Base, State
+from relationship_state import State
 from relationship_city import City
 
 
@@ -38,7 +38,7 @@ def list_states(username, pwd, database):
 if __name__ == '__main__':
     # Check if all arguments are provided
     if len(sys.argv) != 4:
-        print("Usage: python 100-relationship_states_cities.py \
+        print("Usage: python 101-relationship_states_cities_list.py \
                 <username> <password> <database>")
         sys.exit(1)
 
