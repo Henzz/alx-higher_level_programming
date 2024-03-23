@@ -29,7 +29,7 @@ def list_states(username, pwd, database):
     for state in states:
         print(f'{state.id}: {state.name}')
         for city in state.cities:
-            print(f'    {city.id}: {city.name}')
+            print(f'\t{city.id}: {city.name}')
 
     # Close the session
     session.close()
