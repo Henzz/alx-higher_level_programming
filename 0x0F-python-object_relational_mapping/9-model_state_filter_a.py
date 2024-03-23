@@ -26,7 +26,7 @@ def list_states(username, pwd, database):
 
     # Query the State objects from the database and sort by id
     states = session.query(State)\
-        .filter(State.name.like('%a')).order_by(State.id).all()
+        .filter(State.name.like('%a%')).order_by(State.id).all()
 
     # Display the results
     for state in states:
