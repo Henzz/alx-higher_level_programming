@@ -26,7 +26,7 @@ def list_states(username, pwd, database):
     session = Session()
 
     # Query all city objects and join with state object
-    citiess = session.query(City, State)\
+    cities = session.query(City, State)\
         .filter(City.state_id == State.id).order_by(City.id).all()
 
     # Print values
