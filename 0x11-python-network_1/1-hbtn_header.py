@@ -1,30 +1,27 @@
 #!/usr/bin/python3
 """
-Python script to fetch the body response from a URL using urllib package.
+Python script to send a request to a URL and display the value of
+the X-Request-Id variable found in the header of the response.
 """
 import urllib.request
+import sys
 
 
-def fetch(url):
+def fetch_x(url):
     """
-    Fetches the body respose from a given url
+    Sends a request to the given URL and returns the value of the
+    X-Request-Id variable in the response header.
     """
     with urllib.request.urlopen(url) as response:
-        body = response.read()
+        header = response.info()
+        x_request_id = header.get('X-Request-Id')
 
-    response_dict = {
-            "type": str(type(body)),
-            "content": body,
-            "utf8 content": body.decode('utf-8')
-            }
-
-    return response_dict
+    return x_request_id
 
 
 if __name__ == "__main__":
-    url = 'https://alx-intranet.hbtn.io/status'
-    body = fetch(url)
+    # Retrieve command-line argument
+    url = sys.argv[1]
+    x_request_id = fetch_x(url)
 
-    print("Body response:")
-    for key, value in body.items():
-        print(f"\t- {key}: {value}")
+    print(x_request_id)
