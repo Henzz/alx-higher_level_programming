@@ -16,10 +16,9 @@ def fetch(url):
     try:
         with urllib.request.urlopen(url) as response:
             body = response.read().decode('utf-8')
+            return body
     except urllib.error.HTTPError as e:
         print("Error code:", e.code)
-    else:
-        return body
 
 
 if __name__ == "__main__":
