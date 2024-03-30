@@ -13,10 +13,10 @@ def fetch_x(url, email):
     Sends a request to the given URL and returns the value of the
     X-Request-Id variable in the response header.
     """
-    data = urllib.parse.urlencode({'email': email})
-    data = data.encode('utf-8')
+    data = urllib.parse.urlencode({'email': email}).encode('utf-8')
 
-    with urllib.request.urlopen(url) as response:
+    req = urllib.request.Request(url, data=data, method='POST')
+    with urllib.request.urlopen(req) as response:
         body = response.read().decode('utf-8')
 
     return body
