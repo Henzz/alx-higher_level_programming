@@ -32,16 +32,30 @@ function getMovie (url) {
   });
 }
 
-getMovie(url)
-  .then(characters => {
-    characters.forEach(valUrl => {
-      request.get(valUrl, function (err, res, body) {
-        if (!err && res.statusCode === 200) {
-          const data = JSON.parse(body);
-          console.log(data.name);
-        }
-      });
+function getUser (url) {
+  return new Promise((resolve, reject) => {
+    request.get(url, function (err, res, body) {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve({ err, res, body });
     });
+  });
+}
+
+getMovie(url)
+  .then(async characters => {
+    for (const valUrl of characters) {
+      const res = await getUser(valUrl);
+
+      if (!res.err && res.res.statusCode === 200) {
+        const data = JSON.parse(res.body);
+        console.log(data.name);
+      } else {
+        console.log(res);
+      }
+    }
   })
   .catch(err => {
     console.log(err.message);
