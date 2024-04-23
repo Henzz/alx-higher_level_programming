@@ -13,30 +13,36 @@ argv.forEach(function (val, index) {
 
 url = url.replace(':id', id);
 
-request.get(url, function (err, res, body) {
-  if (err) {
-    console.log(err);
-    return;
-  }
+function getMovie (url) {
+  return new Promise((resolve, reject) => {
+    request(url, (err, res, body) => {
+      if (err) {
+        reject(err);
+        return;
+      }
 
-  if (res.statusCode === 200) {
-    const data = JSON.parse(body);
-    data.characters.forEach((val) => {
-      getUser(val);
+      if (res.statusCode === 200) {
+        const movieData = JSON.parse(body);
+        const characters = movieData.characters;
+        resolve(characters);
+      } else {
+        reject(new Error('Something went wrong'));
+      }
     });
-  }
-});
-
-function getUser (url) {
-  request.get(url, function (err, res, body) {
-    if (err) {
-      console.log(err);
-      return;
-    }
-
-    if (res.statusCode === 200) {
-      const data = JSON.parse(body);
-      console.log(data.name);
-    }
   });
 }
+
+getMovie(url)
+  .then(characters => {
+    characters.forEach(valUrl => {
+      request.get(valUrl, function (err, res, body) {
+        if (!err && res.statusCode === 200) {
+          const data = JSON.parse(body);
+          console.log(data.name);
+        }
+      });
+    });
+  })
+  .catch(err => {
+    console.log(err.message);
+  });
