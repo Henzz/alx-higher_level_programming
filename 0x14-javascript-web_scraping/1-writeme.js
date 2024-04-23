@@ -17,7 +17,5 @@ argv.forEach(function (val, index) {
 fs.writeFile(file, str, 'utf-8', function (err, data) {
   if (err) {
     console.error(err);
-    return;
   }
-  console.log('Written!');
 });
